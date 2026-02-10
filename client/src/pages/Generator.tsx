@@ -1,6 +1,8 @@
 import { useState } from "react"
 import Title from "../components/Title"
 import UploadZone from "../components/UploadZone"
+import { Loader2Icon, RectangleHorizontalIcon, RectangleVerticalIcon, Wand2Icon } from "lucide-react"
+import { PrimaryButton } from "../components/Buttons"
 
 const Generator = () => {
 
@@ -22,10 +24,10 @@ const Generator = () => {
       }
     }
   }
-const handleGenerate = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  
-}
+  const handleGenerate = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+  }
 
 
   return (
@@ -39,10 +41,45 @@ const handleGenerate = async (e: React.FormEvent<HTMLFormElement>) => {
             <UploadZone label="Model Image" file={modelImage} onClear={() => setModelImage(null)} onChange={(e) => handleFileChange(e, 'model')} />
           </div>
           {/* Right Col */}
-          <div className="">
-            <p>Right col</p>
-          </div>
+          <div className="w-full">
+            <div className="mb-4 text-gray-300">
+              <label htmlFor="name" className="block text-sm mb-4">Project Name</label>
+              <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter project name" required className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-voilet-200/10 focus:border-voilet-500/50 outline-none transition-all" />
+            </div>
+            <div className="mb-4 text-gray-300">
+              <label htmlFor="productName" className="block text-sm mb-4">Product Name</label>
+              <input type="text" id="productName" value={productName} onChange={(e) => setProductName(e.target.value)} placeholder="Enter product name" required className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-voilet-200/10 focus:border-voilet-500/50 outline-none transition-all" />
+            </div>
+            <div className="mb-4 text-gray-300">
+              <label htmlFor="productDescription" className="block text-sm mb-4">Product Description <span className="text-xs text-blue-600">(Optional)</span></label>
+              <textarea id="productDescription" rows={4} value={productDescription} onChange={(e) => setProductDescription(e.target.value)} placeholder="Enter product description" className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-voilet-200/10 focus:border-voilet-500/50 outline-none transition-all" />
+            </div>
+            <div className="mb-4 text-gray-300">
+              <label className="block text-sm mb-4">Aspect Ratio</label>
+              <div className="flex gap-3">
+                <RectangleVerticalIcon onClick={()=>setAspectRatio('9:16')} className={`p-2.5 size-13 bg-white/6 rounded transition-all ring-2 ring-transparent cursor-pointer ${aspectRatio === '9:16' ? 'ring-voilet-500/50 bg-white/20' : ''}`}/>
+                <RectangleHorizontalIcon onClick={()=>setAspectRatio('16:9')} className={`p-2.5 size-13 bg-white/6 rounded transition-all ring-2 ring-transparent cursor-pointer ${aspectRatio === '16:9' ? 'ring-voilet-500/50 bg-white/20' : ''}`}/>
+              </div>
+            </div>
+            <div className="mb-4 text-gray-300">
+              <label htmlFor="userPrompot" className="block text-sm mb-4">User Prompot <span className="text-xs text-blue-600">(Optional)</span></label>
+              <textarea id="userPrompot" rows={4} value={userPrompot} onChange={(e) => setUserPrompot(e.target.value)} placeholder="Enter user prompot" className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-voilet-200/10 focus:border-voilet-500/50 outline-none transition-all" />
+            </div>
 
+          </div>
+        </div>
+        <div className="flex justify-center mt-10">
+          <PrimaryButton disabled={isGenerating} className="px-10 py-3 rounded-md disabled:opacity-70 disabled:cursor-not-allowed">
+            {isGenerating ? (
+              <>
+              <Loader2Icon className="size-5 animate-spin"/>Generating...
+              </>
+            ) : (
+              <>
+              <Wand2Icon className="size-5"/>Generate Image
+              </>
+            )}
+          </PrimaryButton>
         </div>
       </form>
     </div>

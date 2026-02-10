@@ -1,7 +1,42 @@
+import { Loader2Icon } from "lucide-react"
+import { dummyGenerations } from "../assets/assets"
+import type { Project } from "../types"
+import { useEffect, useState } from "react"
 
 const Community = () => {
-  return (
-    <div>Community</div>
+  const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchProjects = async () => {
+    setTimeout(() => {
+      setProjects(dummyGenerations)
+      setLoading(false)
+    }, 3000)
+  }
+
+  useEffect(() => {
+    fetchProjects()
+  }, [])
+
+  return loading ? (
+    <div className="flex justify-center items-center min-h-screen">
+      <Loader2Icon className="size-7 animate-spin text-indigo-400" />
+    </div>
+  ) : (
+    <div className="min-h-screen text-white p-6 md:p-12 my-28">
+      <div className="max-w-6xl mx-auto">
+        <header className="mb-12">
+          <h1 className="text-3xl md:text-4xl font-semibold mb-4">Community</h1>
+          <p className="text-gray-400">Discover and share your best work with the world</p>
+        </header>
+        {/* Projects List */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+          {projects.map((project) => (
+            <div className="class">{project.productName}</div>
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
 
