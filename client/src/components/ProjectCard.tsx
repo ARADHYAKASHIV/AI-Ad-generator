@@ -35,6 +35,7 @@ const projectCard = ({ gen, setGenerations, forCommunity = false }: { gen: Proje
                             <span className="text-xs px-2 py-1 bg-yellow-600/30 rounded-full">Generating...</span>
                         )}
 
+
                     </div>
                 </div>
 
