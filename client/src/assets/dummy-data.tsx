@@ -88,9 +88,9 @@ export const footerLinks = [
         title: "Quick Links",
         links: [
             { name: "Home", url: "/" },
-            { name: "Features", url: "#features" },
-            { name: "Pricing", url: "#pricing" },
-            { name: "FAQ", url: "#faq" }
+            { name: "Features", url: "/#features" },
+            { name: "Pricing", url: "/#pricing" },
+            { name: "FAQ", url: "/#faq" }
         ]
     },
     {
@@ -105,7 +105,7 @@ export const footerLinks = [
         links: [
             { name: "GitHub", url: "https://github.com/ARADHYAKASHIV" },
             { name: "Instagram", url: "https://www.instagram.com/_aradhya_05_" },
-            { name: "LinkedIn", url: "https://www.linkedin.com/in/aradhyakashiv" }
+            { name: "Mail", url: "mailto:kashiv.aradhya@gmail.com" }
         ]
     }
 ];
