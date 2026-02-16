@@ -34,14 +34,25 @@ const projectCard = ({ gen, setGenerations, forCommunity = false }: { gen: Proje
                         {gen.isGenerating && (
                             <span className="text-xs px-2 py-1 bg-yellow-600/30 rounded-full">Generating...</span>
                         )}
+                        {gen.isPublished && (
+                            <span className="text-xs px-2 py-1 bg-green-600/30 rounded-full">Published</span>
+                        )}
 
 
+                    </div>
+
+                    {/* Source Images */}
+                    <div className="absolute right-3 bottom-3">
+                        <img src={gen.uploadedImages[0]} alt="product" className="w-16 h-16 object-cover rounded-full animate-float"/>
+                        <img src={gen.uploadedImages[1]} alt="model" className="w-16 h-16 object-cover rounded-full animate-float -ml-8" style={{animationDelay:"3s"}}/>
                     </div>
                 </div>
 
                 {/* Details */}
-                
-                <div></div>
+                <div className="p-4">
+                    
+
+                </div>
 
             </div>
 
