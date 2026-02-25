@@ -7,18 +7,51 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
+build
+.next
+.cache
+.vercel
+.turbo
+
+# Local env files
 *.local
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+coverage
+
+# AI / Agent tools
+.agent
+.gemini
+.gsd
+
+# GSD methodology files
+PROJECT_RULES.md
+GSD-STYLE.md
+model_capabilities.yaml
+adapters/
+docs/
+scripts/
