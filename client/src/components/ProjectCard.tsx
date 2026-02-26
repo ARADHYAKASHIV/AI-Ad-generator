@@ -43,14 +43,32 @@ const projectCard = ({ gen, setGenerations, forCommunity = false }: { gen: Proje
 
                     {/* Source Images */}
                     <div className="absolute right-3 bottom-3">
-                        <img src={gen.uploadedImages[0]} alt="product" className="w-16 h-16 object-cover rounded-full animate-float"/>
-                        <img src={gen.uploadedImages[1]} alt="model" className="w-16 h-16 object-cover rounded-full animate-float -ml-8" style={{animationDelay:"3s"}}/>
+                        <img src={gen.uploadedImages[0]} alt="product" className="w-16 h-16 object-cover rounded-full animate-float" />
+                        <img src={gen.uploadedImages[1]} alt="model" className="w-16 h-16 object-cover rounded-full animate-float -ml-8" style={{ animationDelay: "3s" }} />
                     </div>
                 </div>
 
                 {/* Details */}
                 <div className="p-4">
                     
+                    <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1">
+                            <h3 className="font-medium text-lg mb-1">{gen.productName}</h3>
+                            <p className="text-sm text-gray-400">Created: {new Date(gen.createdAt).toLocaleString()}</p>
+                            {gen.updatedAt && (<p className="text-xs text-gray-500 mt-1">Updated: {new Date(gen.updatedAt).toLocaleString()}</p>)}
+                        </div>
+                        <div className="text-right">
+                            <div className="mt-2 flex flex-col itens-end gap-1">
+                                <span className="text-xs px-2 py-1 bg-white/5 rounded-full">Aspect: {gen.aspectRatio}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* product desc */}
+
+                    <div>
+
+                    </div>
 
                 </div>
 
