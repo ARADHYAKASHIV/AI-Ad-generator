@@ -63,6 +63,7 @@ const projectCard = ({ gen, setGenerations, forCommunity = false }: { gen: Proje
                             </div>
                         </div>
                     </div>
+                    
 
                     {/* product desc */}
 
